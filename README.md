@@ -6,15 +6,15 @@ It provides basic stylesheets for the new CC98.org front-end.
 
 Ebony is composed of:
 
-A responsive grid framework modified from [ivory](http://weice.in/ivory/);
-A CSS normalization forked from [normalize.css](http://necolas.github.io/normalize.css/);
-A newly developed [Markup Language](http://cc98-frontend-development.github.io/ebony/ml.html);
-A syntax highlighter from [highlight.js](http://highlightjs.org/);
-A MVVC library from [knockout](http://knockoutjs.com/);
-A evented js library from [Sammy.js](http://www.sammyjs.org/);
-An icon font type from [glyphicons](http://glyphicons.com/) provided as a part of [bootstrap](http://getbootstrap.com/);
-An emoji font type from [emoji symbols](http://emojisymbols.com/);
-Color themes of a white and black style which is example of future color themes.
+- A responsive grid framework modified from [ivory](http://weice.in/ivory/);
+- A CSS normalization forked from [normalize.css](http://necolas.github.io/normalize.css/);
+- A newly developed [Markup Language](http://cc98-frontend-development.github.io/ebony/ml.html);
+- A syntax highlighter from [highlight.js](http://highlightjs.org/);
+- A MVVC library from [knockout](http://knockoutjs.com/);
+- A evented js library from [Sammy.js](http://www.sammyjs.org/);
+- An icon font type from [glyphicons](http://glyphicons.com/) provided as a part of [bootstrap](http://getbootstrap.com/);
+- An emoji font type from [emoji symbols](http://emojisymbols.com/);
+- Color themes of a white and black style which is example of future color themes.
 
 ----
 
