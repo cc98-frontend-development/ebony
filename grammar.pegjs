@@ -456,8 +456,8 @@ Code_option
 /("cs"i /"c#"i) {return "cs";}
 /("cv"i /"py"i /"python"i) {return "python";}
 /("cl"i /"el"i /"lisp"i /"lsp"i /"scm"i /"ss"i /"rkt"i) {return "lisp";}
-/("c"i /"cxx"i /"cc"i /"cpp"i / "c++"i) {return "cpp";}
 /"coffee"i {return "coffeescript";}
+/("c"i /"cxx"i /"cc"i /"cpp"i / "c++"i) {return "cpp";}
 /("erlang"i /"erl") {return "erlang";}
 /"go"i {return "go";}
 /("htm"i /"html"i) {return "html";}
