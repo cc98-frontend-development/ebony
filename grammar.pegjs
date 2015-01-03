@@ -1562,11 +1562,11 @@ Block_end
 /isEof
 
 Blank_line "blank line"
-= _ Newline
+= _ Newline _
 
 /* for matching leading spacechar before tag */
 BLSP
-= Blank_line* _
+= _ Blank_line* _
 
 _ "whitespace"
 = Space_char*
