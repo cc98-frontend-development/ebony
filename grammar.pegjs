@@ -32,7 +32,7 @@
             ["i", "i"],
             ["cite", "cite"],
             ["alert", "div"],
-            ["code_@", "code"], 
+            ["code_@", "code"],
             ["math_$", "span", "\\(", "\\)"],
             ["pre", "pre"],
             ["list*", "ul"],
@@ -116,11 +116,11 @@
     };
 }
 
-start 
+start
 = Blocks
 / isEof
 
-Blocks 
+Blocks
 = a:Block+
 {return gen_tag(a,"article",{"class":"row"});}
 
@@ -137,7 +137,7 @@ Block
  /Image
  /List
  /HRule
- /Heading 
+ /Heading
  /Para
  /Plain)
 
@@ -211,7 +211,7 @@ BBC_Image
 		attr={"src":a, "class":"left"};
 	else if(f === ">")
 		attr={"src":a, "class":"right"};
-	else 
+	else
 		attr={"src":a, "class":"centered"};
 	return gen_tag([], "img", attr);
 }
@@ -221,10 +221,10 @@ BBC_Image_start
 {return f;}
 
 BBC_Image_content
-= !BBC_Image_end a:Image_link 
+= !BBC_Image_end a:Image_link
 {return a;}
 
-BBC_Image_end 
+BBC_Image_end
 = _ "[/" Image_tag [<>]? "]" BLSP
 
 TeX_Image
@@ -235,7 +235,7 @@ TeX_Image
 		attr={"src":a, "class":"left"};
 	else if(f === ">")
 		attr={"src":a, "class":"right"};
-	else 
+	else
 		attr={"src":a, "class":"centered"};
 	return gen_tag([], "img", attr);
 }
@@ -245,10 +245,10 @@ TeX_Image_start
 {return f;}
 
 TeX_Image_content
-= !TeX_Image_end a:Image_link 
+= !TeX_Image_end a:Image_link
 {return a;}
 
-TeX_Image_end 
+TeX_Image_end
 = _ "}" BLSP
 
 Image_link = URL
@@ -345,7 +345,7 @@ c:(!"}" a:TeX_Table_Cell{return a;})+
 {return gen_tag(c, "tr");}
 
 TeX_Table_Cell
-= !Inline 
+= !Inline
 a:(&"\\h" a:TeX_Table_Header {return a;}
 / &"\\d" a:TeX_Table_Data {return a;})
 {return a;}
@@ -355,7 +355,7 @@ TeX_Table_Header
 = "\\h" attr:Table_Cell_span?
   h:(!TeX_Table_Cell a:Inline{return a;})+ BLSP
 {
-	return gen_tag(h, "th", attr); 
+	return gen_tag(h, "th", attr);
 }
 
 TeX_Table_Data
@@ -415,7 +415,7 @@ BBC_Code_start
 {return h;}
 
 BBC_Code_content
-=a:(!BBC_Code_end !BBC_Code_start a:. {return a;})+ 
+=a:(!BBC_Code_end !BBC_Code_start a:. {return a;})+
 {return mkStr(a.join(""));};
 
 BBC_Code_end
@@ -445,7 +445,7 @@ TeX_Code_start
 {return h;}
 
 TeX_Code_content
-= a:(!TeX_Code_end !TeX_Code_start a:. {return a;})+ 
+= a:(!TeX_Code_end !TeX_Code_start a:. {return a;})+
 {return mkStr(a.join(""));};
 
 TeX_Code_end
@@ -646,7 +646,7 @@ BBC_BQCite
 }
 
 BBC_BQCite_start
-= "[" Cite_tag "+]" 
+= "[" Cite_tag "+]"
 
 BBC_BQCite_end
 ="[/" Cite_tag "+]" BLSP
@@ -658,7 +658,7 @@ TeX_BQCite
 }
 
 TeX_BQCite_start
-= "\\" Cite_tag "+" BLSP "{" 
+= "\\" Cite_tag "+" BLSP "{"
 
 TeX_BQCite_end
 = BLSP "}" BLSP
@@ -679,7 +679,7 @@ BBC_OL_start
 BBC_OL_end
 = BLSP "[/" OL_tag "]" BLSP
 
-BBC_UL_start 
+BBC_UL_start
 = "[" UL_tag "]" BLSP
 
 BBC_UL_end
@@ -691,13 +691,13 @@ TeX_List
 / TeX_UL_start a:TeX_List_Items TeX_UL_end
 {return gen_tag(a,"list*");}
 
-TeX_OL_start 
+TeX_OL_start
 = "\\" OL_tag BLSP "{" BLSP
 
 TeX_OL_end
 = BLSP "}" BLSP
 
-TeX_UL_start 
+TeX_UL_start
 = "\\" UL_tag BLSP "{" BLSP
 
 TeX_UL_end
@@ -772,7 +772,7 @@ TeX_Heading
 }
 
 TeX_Heading_start
-= "\\" t:Heading_tag BLSP "{" BLSP 
+= "\\" t:Heading_tag BLSP "{" BLSP
 {return t;}
 
 TeX_Heading_end
@@ -800,7 +800,7 @@ BBC_Subheading
 }
 
 BBC_Subheading_start
-= "[" t:Subheading_tag "]" BLSP 
+= "[" t:Subheading_tag "]" BLSP
 {return t;}
 
 BBC_Subheading_end
@@ -813,7 +813,7 @@ TeX_Subheading
 }
 
 TeX_Subheading_start
-= "\\" t:Subheading_tag BLSP "{" BLSP 
+= "\\" t:Subheading_tag BLSP "{" BLSP
 {return t;}
 
 TeX_Subheading_end
@@ -844,7 +844,7 @@ Inlines
 = c:(!Endline a:Inline
  {return a;}
  / b:Endline !Endline
- {return b;})+ 
+ {return b;})+
 {return c;}
 
 Inline
@@ -921,7 +921,7 @@ BBC_Toanchor
 }
 
 BBC_Toanchor_start
-= "["Toanchor_tag o:BBC_Toanchor_optional_text? "]" _ 
+= "["Toanchor_tag o:BBC_Toanchor_optional_text? "]" _
 {return o;}
 
 BBC_Toanchor_optional_text
@@ -1080,7 +1080,7 @@ Abbr
 
 BBC_Abbr
 = title:BBC_Abbr_start
-a:( !BBC_Abbr_end !Abbr a:Inline {return a;})+ 
+a:( !BBC_Abbr_end !Abbr a:Inline {return a;})+
 BBC_Abbr_end
 {
 	var attr = {"data-title":title};
@@ -1096,7 +1096,7 @@ BBC_Abbr_end
 
 TeX_Abbr
 = title:TeX_Abbr_start
-a:( !TeX_Abbr_end !Abbr a:Inline {return a;})+ 
+a:( !TeX_Abbr_end !Abbr a:Inline {return a;})+
 TeX_Abbr_end
 {
 	var attr = {"data-title":title};
@@ -1580,9 +1580,9 @@ Newline = "\r\n" / "\n"
 
 Special_char
 = "\\"
-/ '[' 
-/ ']' 
-/ '{' 
+/ '['
+/ ']'
+/ '{'
 / '}'
 / '\"'
 
