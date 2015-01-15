@@ -471,13 +471,13 @@ Code_option
 /"php"i {return "php";}
 /("pm"i /"pl"i /"perl"i) {return "perl";}
 /("rb"i /"ruby"i) {return "ruby";}
-/("r"i /"s"i/ "splus"i) {return "r";}
 /"scala"i {return "scala";}
-/"swift"i {return "swift";}
 /"sql"i {return "sql";}
+/"swift"i {return "swift";}
 /"tex"i {return "tex";}
 /"xhtml"i {return "xhtml";}
 /"xml"i {return "xml";}
+/("r"i /"s"i/ "splus"i) {return "r";}
 
 
 
